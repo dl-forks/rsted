@@ -5,18 +5,18 @@
         <meta charset="UTF-8">
         <title>{% block title %}Online reStructuredText editor{% endblock %}</title>
 
-	<link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/base.css"/>
-	<link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/site.css"/>
-	<link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/menu.css"/>
+    <link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/base.css"/>
+    <link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/site.css"/>
+    <link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/menu.css"/>
 
 
-	<script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery-1.6.4.min.js"></script>
-	<script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery.layout.min-1.2.0.js"></script>
+    <script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery-1.6.4.min.js"></script>
+    <script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery.layout.min-1.2.0.js"></script>
 
         {% endblock %}
     </head>
     <body>
-        <a id="github-ribbon" href="http://github.com/anru/rsted">Fork me on GitHub</a>
+        <a id="github-ribbon" href="http://github.com/destrangis/rsted">Fork me on GitHub</a>
         {% block body_head %}
         {% endblock %}
         <header id="header">
