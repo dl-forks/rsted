@@ -5,7 +5,7 @@ utf8codec = codecs.lookup('utf-8')
 
 from flask import current_app
 
-if sys.version > (3,):
+if sys.version_info > (3,):
     from io import StringIO
 else:
     try:

@@ -1,7 +1,7 @@
 import os
 
 # configuration
-DEBUG = not os.environ.has_key('RSTED_PROD')
+DEBUG = 'RSTED_PROD' not in os.environ
 
 RUN_PATH = 'var/run'
 PID_FILE = 'fastcgi.pid'
