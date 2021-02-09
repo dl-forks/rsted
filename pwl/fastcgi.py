@@ -86,9 +86,9 @@ FASTCGI_OPTIONS = {
 
 
 def fastcgi_help(message=None):
-    print FASTCGI_HELP
+    print(FASTCGI_HELP)
     if message:
-        print message
+        print(message)
     return False
 
 
@@ -114,16 +114,16 @@ def runfastcgi(app, argset=[], **kwargs):
         if pw:
             os.setresgid(pw.pw_gid, pw.pw_gid, pw.pw_gid)
             os.setresuid(pw.pw_uid, pw.pw_uid, pw.pw_uid)
-        
+
 
     try:
         import flup
-    except ImportError, e:
-        print >> sys.stderr, 'ERROR: %s' % e
-        print >> sys.stderr, '  Unable to load the flup package.  In order to run rsted'
-        print >> sys.stderr, '  as a FastCGI application, you will need to get flup from'
-        print >> sys.stderr, "  http://www.saddi.com/software/flup/   If you've already"
-        print >> sys.stderr, '  installed flup, then make sure you have it in your PYTHONPATH.'
+    except ImportError as e:
+        print('ERROR: %s' % e, file=sys.stderr)
+        print('  Unable to load the flup package.  In order to run rsted', file=sys.stderr)
+        print('  as a FastCGI application, you will need to get flup from', file=sys.stderr)
+        print("  http://www.saddi.com/software/flup/   If you've already", file=sys.stderr)
+        print('  installed flup, then make sure you have it in your PYTHONPATH.', file=sys.stderr)
         return False
 
     flup_module = 'server.' + options['protocol']
@@ -141,7 +141,7 @@ def runfastcgi(app, argset=[], **kwargs):
     wsgi_opts['debug'] = options['debug'] is not None
 
     try:
-        module = importlib.import_module('.%s' % flup_module, 'flup')
+        module = importlib.import_module('flup.%s' % flup_module, 'flup')
         #WSGIServer = module.WSGIServer
         class WSGIServer(module.WSGIServer):
 
@@ -154,7 +154,7 @@ def runfastcgi(app, argset=[], **kwargs):
                 return super(WSGIServer, self)._spawnChild(sock)
 
     except:
-        print "Can't import flup." + flup_module
+        print("Can't import flup." + flup_module)
         return False
 
     if options['host'] and options['port'] and not options['socket']:

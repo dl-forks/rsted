@@ -53,7 +53,7 @@ class BaseDaemon(object):
                 os.unlink(self.pidfile)
             except:
                 pass
-    
+
     def readpid(self):
         try:
             with open(self.pidfile, 'r') as pf:
@@ -84,7 +84,7 @@ class BaseDaemon(object):
 
         # Get the pid from the pidfile
         pid = self.readpid()
-        
+
         if not pid:
             message = 'pidfile %s does not exist. Daemon not running?\n' % self.pidfile
             sys.stderr.write(message)
@@ -95,7 +95,7 @@ class BaseDaemon(object):
             while 1:
                 os.kill(pid, signal.SIGTERM)  # @UndefinedVariable
                 time.sleep(0.1)
-        except OSError, err:
+        except OSError as err:
             error_code = getattr(err, 'code', err.errno)
             if error_code == errno.ESRCH:  # No such process
                 self.delpid()
