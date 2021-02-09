@@ -1,6 +1,15 @@
+RSTED
+=====
+
 Simple online editor for reStructuredText on Flask.
 
-Try it where: http://rst.ninjs.org/
+This repository contains the necessary modifications to run on Python3
+with up-to-date versions of the packages it depends upon. The original
+repository at https://github.com/anru/rsted is no longer maintained,
+and works only on Python2.
+
+The link to try it online (http://rst.ninjs.org/) is, alas, no longer
+working.
 
 Getting setup
 -------------
