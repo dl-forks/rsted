@@ -8,7 +8,7 @@ with up-to-date versions of the packages it depends upon. The original
 repository at https://github.com/anru/rsted is no longer maintained,
 and works only on Python2.
 
-The link to try it online (http://rst.ninjs.org/) is, alas, no longer
+You can try it at http://destrangis.eu.pythonanywhere.com as the former link (http://rst.ninjs.org/) is, alas, no longer
 working.
 
 Getting setup
