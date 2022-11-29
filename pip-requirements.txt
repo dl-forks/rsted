@@ -1,6 +1,7 @@
 flup
 flask
 rst2pdf
+gunicorn~=20.1.0
 
 # Docutils (for rst2html)
 docutils
