@@ -22,6 +22,7 @@ from flaskext.helpers import render_html
 app = Flask(__name__)
 app.config.from_pyfile(os.environ.get('RSTED_CONF', 'settings.py'))
 
+JOBS_URL = '/srv'
 
 
 def view_is_active(view_name):
@@ -33,6 +34,7 @@ def view_is_active(view_name):
 def ctx_pro():
     return {
         'MEDIA_URL': '/static/',
+        'JOBS_URL': JOBS_URL,
         'is_active': view_is_active
     }
 
@@ -46,7 +48,7 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/srv/rst2html/', methods=['POST', 'GET'])
+@app.route(f'{JOBS_URL}/rst2html/', methods=['POST', 'GET'])
 def rst2html():
     rst = request.form.get('rst', '')
     theme = request.form.get('theme')
@@ -55,7 +57,7 @@ def rst2html():
     html = _rst2html(rst, theme=theme)
     return html
 
-@app.route('/srv/rst2pdf/', methods=['POST'])
+@app.route(f'{JOBS_URL}/rst2pdf/', methods=['POST'])
 def rst2pdf():
     rst = request.form.get('rst', '')
     theme = request.form.get('theme')

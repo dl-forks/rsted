@@ -40,12 +40,12 @@
             </div>
         </div>
         <div class="right">
-            <form id="save_as_pdf" method="POST" action="{{ request.script_root }}/srv/rst2pdf/">
+            <form id="save_as_pdf" method="POST" action="{{ request.script_root }}{{ JOBS_URL }}/rst2pdf/">
                 <input type="submit" value="Export to PDF"/>
                 <input type="hidden" id="as_pdf_theme" name="theme"/>
             </form>
         </div>
-	    <iframe src="{{ request.script_root }}/srv/rst2html/" id="browse"></iframe>
+	    <iframe src="{{ request.script_root }}{{ JOBS_URL }}/rst2html/" id="browse"></iframe>
     </div>
 </div>
 

@@ -122,7 +122,7 @@ function genPreview() {
 
     lastContent = rstContent;
     activeXhr = $.ajax({
-        'url': script_root + '/srv/rst2html/',
+        'url': jobs_url + '/rst2html/',
         'data': {'rst': rstContent, 'theme': getSelectedTheme()},
         'type': 'POST',
         'error': function(xhr) {

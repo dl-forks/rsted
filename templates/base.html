@@ -33,6 +33,7 @@
         </header>
         <script type="text/javascript">
             var script_root = {{ request.script_root|tojson|safe }};
+            var jobs_url = {{ request.script_root|tojson|safe }}{{ JOBS_URL }};
             $('#navigation').find("li.active a").click(function(evt) {
                  evt.preventDefault();
              });
