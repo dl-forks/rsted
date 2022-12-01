@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/site.css"/>
     <link rel="stylesheet" href="{{ request.script_root }}{{ MEDIA_URL }}style/menu.css"/>
 
+    <link rel="stylesheet" href="{{ url_for("static", filename="style/base.css") }}"/>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style/site.css") }}"/>
+    <link rel="stylesheet" href="{{ url_for("static", filename="style/menu.css") }}"/>
 
-    <script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery-1.6.4.min.js"></script>
-    <script src="{{ request.script_root }}{{ MEDIA_URL }}scripts/jquery.layout.min-1.2.0.js"></script>
+
+    <script src="{{ url_for("static", filename="scripts/jquery-1.6.4.min.js") }}"></script>
+    <script src="{{ url_for("static", filename="scripts/jquery.layout.min-1.2.0.js") }}"></script>
 
         {% endblock %}
     </head>
@@ -24,16 +28,15 @@
             <menu id="navigation">
                 {%- block main_nav %}
                 <ul class="menu" id="menu">
-                    <li class="{{ is_active('index') }}"><a href="{{ url_for('index') }}">Editor</a>
+                    <li class="{{ is_active('rsted.index') }}"><a href="{{ url_for('rsted.index') }}">Editor</a>
                     </li>
-                    <li class="{{ is_active('about') }}"><a href="{{ url_for('about') }}">About</a></li>
+                    <li class="{{ is_active('rsted.about') }}"><a href="{{ url_for('rsted.about') }}">About</a></li>
                 </ul>
                 {% endblock -%}
             </menu>
         </header>
         <script type="text/javascript">
-            var script_root = {{ request.script_root|tojson|safe }};
-            var jobs_url = {{ request.script_root|tojson|safe }}{{ JOBS_URL }};
+            var rst2html_url = "{{ url_for("rsted.rst2html") }}";
             $('#navigation').find("li.active a").click(function(evt) {
                  evt.preventDefault();
              });

@@ -2,13 +2,13 @@
 
 {% block head %}
     {{ super() }}
-    <script type="text/javascript" src="{{ request.script_root }}{{ MEDIA_URL }}markit/jquery.markitup.js"></script>
-    <script type="text/javascript" src="{{ request.script_root }}{{ MEDIA_URL }}markit/sets/rest/set.js"></script>
+    <script type="text/javascript" src="{{ url_for("static", filename="markit/jquery.markitup.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static", filename="markit/sets/rest/set.js") }}"></script>
 
-    <link rel="stylesheet" type="text/css" href="{{ request.script_root }}{{ MEDIA_URL }}markit/skins/simple/style.css" />
-    <link rel="stylesheet" type="text/css" href="{{ request.script_root }}{{ MEDIA_URL }}markit/sets/rest/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="markit/skins/simple/style.css") }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="markit/sets/rest/style.css") }}" />
 
-    <script type="text/javascript" src="{{ request.script_root }}{{ MEDIA_URL }}scripts/editor.js"></script>
+    <script type="text/javascript" src="{{ url_for("static", filename="scripts/editor.js") }}"></script>
 
 <script type="text/javascript">
     var js_params = {{ js_params|tojson|safe }};
@@ -40,12 +40,12 @@
             </div>
         </div>
         <div class="right">
-            <form id="save_as_pdf" method="POST" action="{{ request.script_root }}{{ JOBS_URL }}/rst2pdf/">
+            <form id="save_as_pdf" method="POST" action="{{ url_for("rsted.rst2pdf") }}">
                 <input type="submit" value="Export to PDF"/>
                 <input type="hidden" id="as_pdf_theme" name="theme"/>
             </form>
         </div>
-	    <iframe src="{{ request.script_root }}{{ JOBS_URL }}/rst2html/" id="browse"></iframe>
+	    <iframe src="{{ url_for("rsted.rst2html") }}" id="browse"></iframe>
     </div>
 </div>
 
