@@ -1,7 +1,8 @@
 import os
 
 # configuration
-DEBUG = 'RSTED_PROD' not in os.environ
+ENV = os.environ.get('ENV', 'production')
+DEBUG = os.environ.get('DEBUG', False)
 
 RUN_PATH = 'var/run'
 PID_FILE = 'fastcgi.pid'

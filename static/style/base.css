@@ -4,11 +4,16 @@ html, body, #container {
     margin: 0;
     height: 100%;
     background-color: #e1eaef;
+    font-family: Iose7kaGeneral, system-ui;
+}
+
+input {
+    font-family: Iose7kaGeneral, system-ui;
 }
 
 #header {
-    background-color: #213A49;
-    text-align: center;
+    background-color: #21272a;
+    display: flex;
 }
 
 #header, #footer {
@@ -17,16 +22,17 @@ html, body, #container {
 
 
 #header h1 {
-    margin: 0;
-    padding-top: 11px;
-    font-size: 25px;
+    margin: auto;
+    padding: 0 0 0 0.5rem;
+    font-size: 1.5rem;
+    width: 50%;
 }
 
 menu#navigation
 {
     margin: 0;
-    padding: 0;
-    width: 100%;
+    padding: 1rem 0 0;
+    width: 50%;
 }
 
 #navigation ul {
@@ -48,10 +54,13 @@ menu#navigation
 }
 
 #footer {
-    background: #2e3341;
-    text-align: right;
+    background: #1c1e21;
     padding: 11px;
 	color: #E1EAEF;
+    display: flex;
+    column-gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     left: 0;
     right: 0;
@@ -63,12 +72,12 @@ menu#navigation
     -ms-box-shadow: 0 -1px 1px #2E3341;
 }
 
-#footer a {
-    color: #E1EAEF;
+#footer a, #footer a:visited {
+  color: #d0d0d0;
 }
 
-#footer a:visited {
-    color: #e1e5ef;
+#footer a:hover {
+  color: #fff;
 }
 
 li.ext_link {
@@ -112,16 +121,13 @@ li.ext_link {
     font-size: 0.9em !important;
 }
 
-#github-ribbon {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  padding: 0 1rem;
-  color: #213A49;
-  background: #E1EAEF;
+.github-logo svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 0.5rem;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 2px;
+}
+.github-logo a {
+    display: flex;
+    align-items: center;
 }

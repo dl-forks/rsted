@@ -122,7 +122,7 @@ function genPreview() {
 
     lastContent = rstContent;
     activeXhr = $.ajax({
-        'url': script_root + '/srv/rst2html/',
+        'url': rst2html_url,
         'data': {'rst': rstContent, 'theme': getSelectedTheme()},
         'type': 'POST',
         'error': function(xhr) {
@@ -204,7 +204,7 @@ $(function() {
     $('textarea#editor').scroll(syncScrollPosition);
 
     $('.themes input').bind('change', function() {
-        history.pushState({theme: getSelectedTheme()}, document.title, '/?theme=' + getSelectedTheme() + location.hash);
+        history.pushState({theme: getSelectedTheme()}, document.title, '?theme=' + getSelectedTheme() + location.hash);
         genPreview();
     });
 
