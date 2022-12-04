@@ -14,6 +14,7 @@ input {
 #header {
     background-color: #21272a;
     display: flex;
+    align-items: flex-end;
 }
 
 #header, #footer {
@@ -22,17 +23,17 @@ input {
 
 
 #header h1 {
-    margin: auto;
-    padding: 0 0 0 0.5rem;
+    margin-block: 0.5rem;
     font-size: 1.5rem;
-    width: 50%;
+    padding-inline-start: 0.5rem;
+    flex: 1;
 }
 
 menu#navigation
 {
     margin: 0;
-    padding: 1rem 0 0;
-    width: 50%;
+    padding: 0;
+    flex: 1;
 }
 
 #navigation ul {

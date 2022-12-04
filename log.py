@@ -22,9 +22,3 @@ def init():
     handler_file.setFormatter(formatter)
     handler_file.setLevel(log_level)
     app.logger.addHandler(handler_file)
-
-    app.logger.debug("static_url_path: %s", app.static_url_path)
-    for k, v in os.environ.items():
-        app.logger.debug(f"Env {k}: {v}")
-    for k, v in app.config.items():
-        app.logger.debug(f"Config {k}: {v}")
