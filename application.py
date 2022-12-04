@@ -47,10 +47,6 @@ def index():
     yield 'js_params', {'theme': request.args.get('theme', '')}
 
 
-@bp.route('/about/')
-def about():
-    return render_template('about.html')
-
 @bp.route('/rst2html/', methods=['POST', 'GET'])
 def rst2html():
     rst = request.form.get('rst', '')
