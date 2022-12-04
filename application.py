@@ -20,13 +20,13 @@ from flaskext.helpers import render_html
 
 # create our little application :)
 
-app = Flask(__name__, static_url_path='/rsted/static')
+app = Flask(__name__, static_url_path='/static')
 app.config.from_pyfile(os.environ.get("RSTED_CONF", "settings.py"))
 
 bp = Blueprint(
     "rsted",
     __name__,
-    url_prefix="/rsted"
+    url_prefix="/"
 )
 
 
@@ -40,12 +40,6 @@ def ctx_pro():
     return {
         'is_active': view_is_active,
     }
-
-@bp.route("/")
-@render_html('index.html')
-def index():
-    yield 'js_params', {'theme': request.args.get('theme', '')}
-
 
 @bp.route('/rst2html/', methods=['POST', 'GET'])
 def rst2html():
