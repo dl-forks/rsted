@@ -18,20 +18,23 @@ default_rst_opts = {
     'stylesheet_path': None,
     'traceback': True,
     'halt_level': 5,
+    'embed_stylesheet': False,
 }
 
-def rst2html(rst, theme=None, opts=None):
+
+def rst2html(rst, css_path_prefix: str = None, theme=None, opts=None):
     rst_opts = default_rst_opts.copy()
     if opts:
         rst_opts.update(opts)
     rst_opts['template'] = 'var/themes/template.txt'
 
-    stylesheets = ['basic.css']
+    stylesheets = ["basic.css"]
     if theme:
-        stylesheets.append('%s/%s.css' % (theme, theme))
-    rst_opts['stylesheet'] = ','.join([J('var/themes/', p) for p in stylesheets ])
+        stylesheets.append(f"{theme}.css")
+    if css_path_prefix:
+        rst_opts["stylesheet_path"] = ",".join([J(css_path_prefix, p) for p in stylesheets])
 
-    out = publish_string(rst, writer_name='html', settings_overrides=rst_opts)
+    out = publish_string(rst, writer_name="html", settings_overrides=rst_opts)
 
     return out
 

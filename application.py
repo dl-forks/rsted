@@ -41,13 +41,17 @@ def ctx_pro():
         'is_active': view_is_active,
     }
 
-@bp.route('/rst2html/', methods=['POST', 'GET'])
+@bp.route("/rst2html/", methods=["POST", "GET"])
 def rst2html():
-    rst = request.form.get('rst', '')
-    theme = request.form.get('theme')
-    if theme == 'basic':
+    rst = request.form.get("rst", "")
+    theme = request.form.get("theme")
+    if theme == "basic":
         theme = None
-    html = _rst2html(rst, theme=theme)
+    html = _rst2html(
+        rst,
+        css_path_prefix=request.form.get("css_path_prefix"),  # костыль
+        theme=theme,
+    )
     return html
 
 @bp.route('/rst2pdf/', methods=['POST'])
