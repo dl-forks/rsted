@@ -45,6 +45,8 @@ def ctx_pro():
 def rst2html():
     rst = request.form.get("rst", "")
     theme = request.form.get("theme")
+    if request.get_json(silent=True):
+        rst = request.json.get("rst", "")
     if theme == "basic":
         theme = None
     html = _rst2html(
