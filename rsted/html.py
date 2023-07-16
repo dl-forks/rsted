@@ -33,8 +33,9 @@ def rst2html(rst, css_path_prefix: str = None, theme=None, opts=None):
     if theme:
         stylesheets.append(f"{theme}.css")
     if css_path_prefix:
-        rst_opts["stylesheet_path"] = ",".join([J(css_path_prefix, p) for p in stylesheets])
-    rst_opts["stylesheet_path"] += ",css/syntax.css"
+        rst_opts["stylesheet_path"] = ",".join([J(css_path_prefix, p) for p in stylesheets]+"css/syntax.css")
+    else:
+        rst_opts["stylesheet_path"] = "css/syntax.css"
 
     out = publish_string(rst, writer_name="html", settings_overrides=rst_opts)
 
